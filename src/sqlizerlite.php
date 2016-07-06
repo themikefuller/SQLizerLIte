@@ -35,6 +35,7 @@ class SQLizerLite {
             $this->message = "Failed to make a connection to the database. Check database configuration.";
         // If the settings are valid, set the properties and maintain connection.
         } else {
+            $conn->exec( 'PRAGMA foreign_keys = ON;');
             $this->status = true;
             $this->message = "Connected to " . $db_file;
             $this->database = $db_file;
