@@ -77,7 +77,7 @@ class SQLizerLite {
         // Execute the statement.
         $stmt->execute($values);
         // For select statements
-        if (isset($statement) and substr(strtolower($statement),0,6) == 'select') {
+        if (isset($statement) and (substr(strtolower($statement),0,6) == 'select' or substr(strtolower($statement),0,4) == 'show')) {
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         // For Insert statements. Return the last inserted ID.
